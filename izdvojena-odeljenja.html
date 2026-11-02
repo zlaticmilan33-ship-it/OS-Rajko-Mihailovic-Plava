@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Izdvojena odeljenja | OŠ Rajko Mihailović Banjani</title>
+<meta name="description" content="Izdvojena odeljenja OŠ Rajko Mihailović Banjani: Brezovica, Vrelo, Vukona, Kalinovac, Kožuar, Takovo i Tulari.">
+<link rel="stylesheet" href="_ds/modernist-3a88c85d-9e72-4835-b725-3b9593b80788/styles.css">
+<script src="_ds/modernist-3a88c85d-9e72-4835-b725-3b9593b80788/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+:root {
+  --color-bg: #ffffff;
+  --color-surface: #f2f4f7;
+  --color-text: #111111;
+  --color-accent: #1f4e8c;
+  --color-accent-2: #3d6fa8;
+  --color-accent-100: #e8eef6;
+  --color-accent-200: #cddbec;
+  --color-accent-300: #9fb9d9;
+  --color-accent-400: #6188bd;
+  --color-accent-500: #1f4e8c;
+  --color-accent-600: #1a4277;
+  --color-accent-700: #163862;
+  --color-accent-800: #112b4b;
+  --color-accent-900: #0b1c31;
+}
+html { scroll-behavior: smooth; }
+body { margin: 0; text-wrap: pretty; }
+a { color: var(--color-accent-700); text-decoration: underline; }
+a:hover { color: var(--color-accent); }
+</style>
+</helmet>
+
+<div style="background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); min-height: 100vh;">
+
+  <nav class="nav" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 16px clamp(20px, 5vw, 72px); flex-wrap: wrap;">
+    <span class="nav-brand">OŠ Rajko Mihailović</span>
+    <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+      <a href="index.html" style="white-space: nowrap;">Početna</a>
+      <a href="za-roditelje.html" style="white-space: nowrap;">Za roditelje</a>
+      <a href="index.html#kontakt" style="white-space: nowrap;">Kontakt</a>
+    </div>
+  </nav>
+
+  <div style="max-width: 1440px; margin: 0 auto; padding: 48px clamp(20px, 5vw, 72px);">
+
+    <section id="izdvojena-odeljenja">
+      <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 16px;">Naša škola</span>
+      <h1 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(30px, 4vw, 44px); line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 16px;">Izdvojena odeljenja</h1>
+      <p style="font-size: 15.5px; line-height: 1.7; margin: 0 0 40px; max-width: 68ch; color: color-mix(in srgb, var(--color-text) 80%, transparent);">Matična škola nalazi se u Banjanima, a nastava se organizuje i u sedam izdvojenih odeljenja.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 32px 24px;">
+        <article style="display: flex; flex-direction: column; gap: 12px; border-top: 2px solid var(--color-divider); padding-top: 16px;">
+          <image-slot id="odeljenje-brezovica" shape="rect" placeholder="Fotografija školskog objekta — Brezovica" style="display: block; width: 100%; aspect-ratio: 4/3;"></image-slot>
+          <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 21px; margin: 0;">Brezovica</h2>
+        </article>
+        <article style="display: flex; flex-direction: column; gap: 12px; border-top: 2px solid var(--color-divider); padding-top: 16px;">
+          <image-slot id="odeljenje-vrelo" shape="rect" placeholder="Fotografija školskog objekta — Vrelo" style="display: block; width: 100%; aspect-ratio: 4/3;"></image-slot>
+          <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 21px; margin: 0;">Vrelo</h2>
+        </article>
+        <article style="display: flex; flex-direction: column; gap: 12px; border-top: 2px solid var(--color-divider); padding-top: 16px;">
+          <image-slot id="odeljenje-vukona" shape="rect" placeholder="Fotografija školskog objekta — Vukona" style="display: block; width: 100%; aspect-ratio: 4/3;"></image-slot>
+          <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 21px; margin: 0;">Vukona</h2>
+        </article>
+        <article style="display: flex; flex-direction: column; gap: 12px; border-top: 2px solid var(--color-divider); padding-top: 16px;">
+          <image-slot id="odeljenje-kalinovac" shape="rect" placeholder="Fotografija školskog objekta — Kalinovac" style="display: block; width: 100%; aspect-ratio: 4/3;"></image-slot>
+          <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 21px; margin: 0;">Kalinovac</h2>
+        </article>
+        <article style="display: flex; flex-direction: column; gap: 12px; border-top: 2px solid var(--color-divider); padding-top: 16px;">
+          <image-slot id="odeljenje-kozuar" shape="rect" placeholder="Fotografija školskog objekta — Kožuar" style="display: block; width: 100%; aspect-ratio: 4/3;"></image-slot>
+          <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 21px; margin: 0;">Kožuar</h2>
+        </article>
+        <article style="display: flex; flex-direction: column; gap: 12px; border-top: 2px solid var(--color-divider); padding-top: 16px;">
+          <image-slot id="odeljenje-takovo" shape="rect" placeholder="Fotografija školskog objekta — Takovo" style="display: block; width: 100%; aspect-ratio: 4/3;"></image-slot>
+          <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 21px; margin: 0;">Takovo</h2>
+        </article>
+        <article style="display: flex; flex-direction: column; gap: 12px; border-top: 2px solid var(--color-divider); padding-top: 16px;">
+          <image-slot id="odeljenje-tulari" shape="rect" placeholder="Fotografija školskog objekta — Tulari" style="display: block; width: 100%; aspect-ratio: 4/3;"></image-slot>
+          <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 21px; margin: 0;">Tulari</h2>
+        </article>
+      </div>
+    </section>
+
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

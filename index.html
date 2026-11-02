@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<title>OŠ Rajko Mihailović Banjani | Osnovna škola Ub</title>
+<meta name="description" content="Osnovna škola Rajko Mihailović u Banjanima, Ub — osnovana 1874. godine. Novosti, raspored časova, osoblje, upis učenika, dokumenti i kontakt.">
+<meta name="keywords" content="Osnovna škola Rajko Mihailović, OŠ Banjani, škola Banjani Ub, osnovna škola Ub, upis učenika Banjani, raspored časova Banjani, škola Karađorđeva Banjani">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-3a88c85d-9e72-4835-b725-3b9593b80788/styles.css">
+<script src="_ds/modernist-3a88c85d-9e72-4835-b725-3b9593b80788/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+:root {
+  --color-bg: #ffffff;
+  --color-surface: #f2f4f7;
+  --color-text: #111111;
+  --color-accent: #1f4e8c;
+  --color-accent-2: #3d6fa8;
+  --color-accent-100: #e8eef6;
+  --color-accent-200: #cddbec;
+  --color-accent-300: #9fb9d9;
+  --color-accent-400: #6188bd;
+  --color-accent-500: #1f4e8c;
+  --color-accent-600: #1a4277;
+  --color-accent-700: #163862;
+  --color-accent-800: #112b4b;
+  --color-accent-900: #0b1c31;
+}
+html { scroll-behavior: smooth; }
+body { margin: 0; text-wrap: pretty; }
+a { color: var(--color-accent-700); text-decoration: underline; transition: color 0.15s ease; }
+a:hover { color: var(--color-accent); }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</helmet>
+
+
+
+<div style="width: {{ previewWidthCss }}; max-width: 100%; margin: 0 auto; transition: {{ previewTransition }}; border-left: {{ previewBorder }}; border-right: {{ previewBorder }}; position: relative;">
+  <sc-if value="{{ showHandle }}" hint-placeholder-val="{{ false }}">
+    <div onMouseDown="{{ startDrag }}" style="position: absolute; top: 0; right: -7px; width: 14px; height: 100%; cursor: ew-resize; z-index: 999; display: flex; align-items: flex-start; justify-content: center; padding-top: 60px;">
+      <div style="width: 4px; height: 40px; background: var(--color-accent); border-radius: 2px;"></div>
+    </div>
+  </sc-if>
+<div style="background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); min-height: 100vh;">
+
+  <nav class="nav" style="display: flex; flex-direction: column; align-items: stretch; gap: 12px; padding: 16px clamp(20px, 5vw, 72px); position: relative;">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+        <span class="nav-brand">OŠ Rajko Mihailović</span>
+      </sc-if>
+      <sc-if value="{{ notMobile }}" hint-placeholder-val="{{ true }}">
+        <span></span>
+      </sc-if>
+      <sc-if value="{{ notMobile }}" hint-placeholder-val="{{ true }}">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <input type="text" placeholder="Pretraga..." style="border: 2px solid var(--color-divider); background: var(--color-bg); color: var(--color-text); padding: 8px 12px; font-family: var(--font-body); font-size: 14px; width: 140px;">
+          <button type="button" class="btn btn-secondary">Pretraga</button>
+          <a href="#upis" class="btn btn-primary" style="text-decoration: none; margin-left: 24px; white-space: nowrap; color: var(--color-bg);">Upis učenika</a>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+        <button type="button" onClick="{{ toggleMenu }}" aria-label="Meni" aria-expanded="{{ menuOpen }}" style="all: unset; cursor: pointer; display: flex; flex-direction: column; gap: 5px; padding: 8px;">
+          <span style="width: 24px; height: 2px; background: var(--color-text);"></span>
+          <span style="width: 24px; height: 2px; background: var(--color-text);"></span>
+          <span style="width: 24px; height: 2px; background: var(--color-text);"></span>
+        </button>
+        <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position: absolute; top: 100%; left: 0; right: 0; background: var(--color-bg); border-top: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider); z-index: 20; display: flex; flex-direction: column; animation: fadeIn 0.15s ease;">
+            <a href="#o-skoli" onClick="{{ closeMenu }}" style="padding: 14px 24px; border-bottom: 2px solid var(--color-divider);">O školi</a>
+            <a href="#skolski-odbor" onClick="{{ closeMenu }}" style="padding: 14px 24px; border-bottom: 2px solid var(--color-divider);">Organizacija</a>
+            <a href="#raspored" onClick="{{ closeMenu }}" style="padding: 14px 24px; border-bottom: 2px solid var(--color-divider);">Nastava</a>
+            <a href="#novosti" onClick="{{ closeMenu }}" style="padding: 14px 24px; border-bottom: 2px solid var(--color-divider);">Novosti</a>
+            <a href="#osoblje" onClick="{{ closeMenu }}" style="padding: 14px 24px; border-bottom: 2px solid var(--color-divider);">Osoblje</a>
+            <a href="#galerija" onClick="{{ closeMenu }}" style="padding: 14px 24px; border-bottom: 2px solid var(--color-divider);">Galerija</a>
+            <a href="#raspored" onClick="{{ closeMenu }}" style="padding: 14px 24px; border-bottom: 2px solid var(--color-divider);">Raspored</a>
+            <a href="za-roditelje.html" style="padding: 14px 24px; border-bottom: 2px solid var(--color-divider);">Za roditelje</a>
+            <a href="izdvojena-odeljenja.html" style="padding: 14px 24px; border-bottom: 2px solid var(--color-divider);">Izdvojena odeljenja</a>
+            <a href="#kontakt" onClick="{{ closeMenu }}" style="padding: 14px 24px; border-bottom: 2px solid var(--color-divider);">Kontakt</a>
+            <a href="#upis" onClick="{{ closeMenu }}" style="padding: 14px 24px;">Upis učenika</a>
+          </div>
+        </sc-if>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ notMobile }}" hint-placeholder-val="{{ true }}">
+    <div ref="{{ navRowRef }}" style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <span class="nav-brand">OŠ Rajko Mihailović</span>
+        <a href="#o-skoli" style="white-space: nowrap;">O školi</a>
+        <div style="position: relative;" onMouseEnter="{{ openOrg }}" onMouseLeave="{{ closeOrg }}">
+          <span style="white-space: nowrap; cursor: default;">Organizacija</span>
+          <sc-if value="{{ orgOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="position: absolute; top: 100%; left: 0; margin-top: 8px; background: var(--color-bg); border: 2px solid var(--color-divider); min-width: 200px; z-index: 10; animation: fadeIn 0.15s ease;">
+              <a href="#osoblje" style="display: block; padding: 12px 16px; text-decoration: none; color: var(--color-text); border-bottom: 2px solid var(--color-divider);">Nastavno osoblje</a>
+              <a href="#o-skoli" style="display: block; padding: 12px 16px; text-decoration: none; color: var(--color-text); border-bottom: 2px solid var(--color-divider);">O školi</a>
+              <a href="#dokumenti" style="display: block; padding: 12px 16px; text-decoration: none; color: var(--color-text); border-bottom: 2px solid var(--color-divider);">Dokumenti i akti</a>
+              <a href="#skolski-odbor" style="display: block; padding: 12px 16px; text-decoration: none; color: var(--color-text); border-bottom: 2px solid var(--color-divider);">Školski odbor</a>
+              <a href="#savet-roditelja" style="display: block; padding: 12px 16px; text-decoration: none; color: var(--color-text); border-bottom: 2px solid var(--color-divider);">Savet roditelja</a>
+              <a href="#direktor" style="display: block; padding: 12px 16px; text-decoration: none; color: var(--color-text); border-bottom: 2px solid var(--color-divider);">Direktor</a>
+              <a href="#strucni-saradnici" style="display: block; padding: 12px 16px; text-decoration: none; color: var(--color-text);">Stručni saradnici</a>
+            </div>
+          </sc-if>
+        </div>
+        <a href="#raspored" style="white-space: nowrap;">Nastava</a>
+        <a href="#novosti" style="white-space: nowrap;">Novosti</a>
+        <a href="#osoblje" style="white-space: nowrap;">Osoblje</a>
+        <a href="#galerija" style="white-space: nowrap;">Galerija</a>
+        <a href="#raspored" style="white-space: nowrap;">Raspored</a>
+        <a href="za-roditelje.html" style="white-space: nowrap;">Za roditelje</a>
+        <a href="izdvojena-odeljenja.html" style="white-space: nowrap;">Izdvojena odeljenja</a>
+        <a href="#kontakt" style="white-space: nowrap;">Kontakt</a>
+    </div>
+    </sc-if>
+  </nav>
+
+  <div style="max-width: 1440px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 72px);">
+
+    <section style="{{ heroGridStyle }}">
+      <div>
+        <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 20px;">Banjani</span>
+        <h1 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(36px, 5.5vw, 64px); line-height: 1.2; letter-spacing: -0.02em; margin: 0;">Osnovna škola<br>Rajko Mihailović</h1>
+        <p style="font-size: 17px; line-height: 1.65; max-width: 52ch; margin: 20px 0 0; color: color-mix(in srgb, var(--color-text) 82%, transparent);">Škola u Banjanima osnovana je 1874. godine i nosi 152 godine tradicije obrazovanja u ovom mestu. Danas tu tradiciju nastavljamo uz brigu za svako dete koje kroči u našu učionicu. Ove školske godine škola broji 295 učenika.</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px;">
+          <a href="#upis" class="btn btn-primary" style="text-decoration: none; white-space: nowrap;">Upis učenika</a>
+          <a href="#kontakt" class="btn btn-ghost" style="text-decoration: none; white-space: nowrap;">Kontakt</a>
+        </div>
+      </div>
+      <figure style="margin: 0;">
+        <img src="assets/skola-zgrada.png" alt="Zgrada OŠ Rajko Mihailović u Banjanima" style="display: block; width: 100%; aspect-ratio: 4/3; object-fit: cover;">
+      </figure>
+    </section>
+
+    <hr class="hr">
+
+    <section id="o-skoli" style="padding: 48px 0;">
+      <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 16px;">O školi</span>
+      <div style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 40px;">
+        <div>
+          <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; line-height: 1.2; margin: 0 0 16px;">Istorija</h2>
+          <p style="font-size: 15.5px; line-height: 1.7; margin: 0; color: color-mix(in srgb, var(--color-text) 80%, transparent);">1874. godine je osnovana škola u Banjanima, Ulica Karađorđeva b.b., Banjani. Od osnivanja do danas škola je ostala mesto gde generacije đaka iz Banjana i okolnih sela stiču prvo obrazovanje.</p>
+        </div>
+        <div>
+          <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; line-height: 1.2; margin: 0 0 16px;">Danas</h2>
+          <p style="font-size: 15.5px; line-height: 1.7; margin: 0; color: color-mix(in srgb, var(--color-text) 80%, transparent);">Direktorka škole je Vesna Vasić. Škola neguje topao odnos prema učenicima i roditeljima, uz nastavu prilagođenu potrebama svakog razreda.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="hr">
+
+    <section id="novosti" style="padding: 48px 0;">
+      <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 16px;">Obaveštenja</span>
+      <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; line-height: 1.2; margin: 0 0 24px;">Novosti</h2>
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 32px;">
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <sc-for list="{{ years }}" as="y" hint-placeholder-count="3">
+            <button type="button" class="{{ y.className }}" onClick="{{ y.select }}" style="text-decoration: none;">{{ y.label }}</button>
+          </sc-for>
+        </div>
+        <div style="text-align: right;">
+          <p style="font-size: 14px; margin: 0 0 4px;"><strong>Sledeći događaj:</strong> Roditeljski sastanci, oktobar</p>
+          <p style="font-size: 14px; color: color-mix(in srgb, var(--color-text) 70%, transparent); margin: 0;">Za sva obaveštenja pratite i oglasnu tablu škole.</p>
+        </div>
+      </div>
+      <div style="border-top: 2px solid var(--color-divider);">
+        <sc-for list="{{ filteredNews }}" as="item" hint-placeholder-count="3">
+          <div>
+            <button type="button" onClick="{{ item.toggle }}" style="all: unset; display: grid; grid-template-columns: minmax(96px, 140px) minmax(0,1fr) auto; gap: 24px; padding: 24px 0; width: 100%; cursor: pointer; text-align: left;">
+              <p style="font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; font-feature-settings: 'tnum' 1; color: var(--color-accent-700); margin: 0;">{{ item.date }}</p>
+              <h3 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 19px; margin: 0;">{{ item.title }}</h3>
+              <span style="color: var(--color-accent); font-size: 20px; line-height: 1;">{{ item.sign }}</span>
+            </button>
+            <sc-if value="{{ item.open }}" hint-placeholder-val="{{ false }}">
+              <p style="font-size: 15.5px; line-height: 1.6; margin: 0 0 24px 140px; max-width: 64ch; color: color-mix(in srgb, var(--color-text) 80%, transparent); animation: fadeInUp 0.2s ease;">{{ item.text }}</p>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+      <sc-if value="{{ hasMoreNews }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top: 16px;">
+          <button type="button" class="btn btn-secondary" onClick="{{ showMoreNews }}">Prikaži još</button>
+        </div>
+      </sc-if>
+      <div style="margin-top: 16px; text-align: right;">
+        <a href="#" onClick="{{ showAllNews }}" style="font-size: 14px;">Arhiva vesti →</a>
+      </div>
+    </section>
+
+    <hr class="hr">
+
+    <section id="osoblje" style="padding: 48px 0;">
+      <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 16px;">Osoblje</span>
+      <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; line-height: 1.2; margin: 0 0 24px;">Nastavno osoblje</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px;">
+        <div class="card" style="transition: transform 0.2s ease, box-shadow 0.2s ease;" style-hover="{{ cardHover }}">
+          <p class="card-kicker">Direktor</p>
+          <h3 class="card-title">Vesna Vasić</h3>
+        </div>
+        <div class="card" style="transition: transform 0.2s ease, box-shadow 0.2s ease;" style-hover="{{ cardHover }}">
+          <p class="card-kicker">Stručna služba</p>
+          <h3 class="card-title">Pedagog i defektolog</h3>
+        </div>
+        <div class="card" style="transition: transform 0.2s ease, box-shadow 0.2s ease;" style-hover="{{ cardHover }}">
+          <p class="card-kicker">Nastava</p>
+          <h3 class="card-title">Razredna nastava</h3>
+        </div>
+        <div class="card" style="transition: transform 0.2s ease, box-shadow 0.2s ease;" style-hover="{{ cardHover }}">
+          <p class="card-kicker">Nastava</p>
+          <h3 class="card-title">Predmetna nastava</h3>
+        </div>
+      </div>
+    </section>
+
+    <hr class="hr">
+
+    <section id="skolski-odbor" style="padding: 48px 0;">
+      <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 16px;">Organizacija</span>
+      <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; line-height: 1.2; margin: 0 0 16px;">Školski odbor</h2>
+      <p style="font-size: 15.5px; line-height: 1.7; margin: 0; color: color-mix(in srgb, var(--color-text) 80%, transparent); max-width: 64ch;">Školski odbor je organ upravljanja školom, sastavljen od predstavnika zaposlenih, roditelja i osnivača. Sastav i mandat odbora objavljuju se u dokumentima škole.</p>
+    </section>
+
+    <hr class="hr">
+
+    <section id="savet-roditelja" style="padding: 48px 0;">
+      <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 16px;">Organizacija</span>
+      <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; line-height: 1.2; margin: 0 0 16px;">Savet roditelja</h2>
+      <p style="font-size: 15.5px; line-height: 1.7; margin: 0; color: color-mix(in srgb, var(--color-text) 80%, transparent); max-width: 64ch;">Savet roditelja čine predstavnici roditelja svakog odeljenja. Savet razmatra pitanja vezana za rad škole i predlaže mere za unapređenje uslova učenja.</p>
+    </section>
+
+    <hr class="hr">
+
+    <section id="direktor" style="padding: 48px 0;">
+      <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 16px;">Organizacija</span>
+      <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; line-height: 1.2; margin: 0 0 16px;">Direktor</h2>
+      <p style="font-size: 15.5px; line-height: 1.7; margin: 0; color: color-mix(in srgb, var(--color-text) 80%, transparent); max-width: 64ch;">Direktorka škole je Vesna Vasić. Direktor rukovodi radom škole i predstavlja školu prema roditeljima, osnivaču i drugim institucijama.</p>
+    </section>
+
+    <hr class="hr">
+
+    <section id="strucni-saradnici" style="padding: 48px 0;">
+      <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 16px;">Organizacija</span>
+      <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; line-height: 1.2; margin: 0 0 16px;">Stručni saradnici</h2>
+      <p style="font-size: 15.5px; line-height: 1.7; margin: 0; color: color-mix(in srgb, var(--color-text) 80%, transparent); max-width: 64ch;">Stručnu službu škole čine pedagog i defektolog, koji prate razvoj i napredovanje učenika i pružaju podršku nastavnicima i roditeljima.</p>
+    </section>
+
+    <hr class="hr">
+
+    <section id="galerija" style="padding: 48px 0;">
+      <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 16px;">Galerija</span>
+      <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; line-height: 1.2; margin: 0 0 24px;">Fotografije</h2>
+      <div class="grayscale" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px;">
+        <image-slot id="gal-1" shape="rect" placeholder="Fotografija" style="width: 100%; aspect-ratio: 1/1;"></image-slot>
+        <image-slot id="gal-2" shape="rect" placeholder="Fotografija" style="width: 100%; aspect-ratio: 1/1;"></image-slot>
+        <image-slot id="gal-3" shape="rect" placeholder="Fotografija" style="width: 100%; aspect-ratio: 1/1;"></image-slot>
+        <image-slot id="gal-4" shape="rect" placeholder="Fotografija" style="width: 100%; aspect-ratio: 1/1;"></image-slot>
+        <image-slot id="gal-5" shape="rect" placeholder="Fotografija" style="width: 100%; aspect-ratio: 1/1;"></image-slot>
+        <image-slot id="gal-6" shape="rect" placeholder="Fotografija" style="width: 100%; aspect-ratio: 1/1;"></image-slot>
+        <image-slot id="gal-7" shape="rect" placeholder="Fotografija" style="width: 100%; aspect-ratio: 1/1;"></image-slot>
+        <image-slot id="gal-8" shape="rect" placeholder="Fotografija" style="width: 100%; aspect-ratio: 1/1;"></image-slot>
+      </div>
+    </section>
+
+    <hr class="hr">
+
+    <section id="raspored" style="padding: 48px 0;">
+      <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 16px;">Raspored</span>
+      <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; line-height: 1.2; margin: 0 0 24px;">Raspored časova</h2>
+      <div style="overflow-x: auto; cursor: zoom-in;" onClick="{{ openRaspored }}">
+        <table class="table" style="min-width: 640px;">
+          <thead>
+            <tr><th>Čas</th><th>Ponedeljak</th><th>Utorak</th><th>Sreda</th><th>Četvrtak</th><th>Petak</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1.</td><td>Srpski jezik</td><td>Matematika</td><td>Priroda i društvo</td><td>Srpski jezik</td><td>Fizičko vaspitanje</td></tr>
+            <tr><td>2.</td><td>Matematika</td><td>Srpski jezik</td><td>Matematika</td><td>Likovna kultura</td><td>Matematika</td></tr>
+            <tr><td>3.</td><td>Engleski jezik</td><td>Priroda i društvo</td><td>Srpski jezik</td><td>Muzička kultura</td><td>Srpski jezik</td></tr>
+            <tr><td>4.</td><td>Fizičko vaspitanje</td><td>Engleski jezik</td><td>Digitalni svet</td><td>Matematika</td><td>Čas odeljenske zajednice</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size: 13px; margin: 8px 0 0; color: color-mix(in srgb, var(--color-text) 65%, transparent);">Kliknite na tabelu za veći prikaz.</p>
+    </section>
+
+    <sc-if value="{{ rasporedOpen }}" hint-placeholder-val="{{ false }}">
+      <div class="dialog-backdrop" onClick="{{ closeRaspored }}" style="animation: fadeIn 0.15s ease;">
+        <div class="dialog" onClick="{{ stopClick }}" style="max-width: 900px;">
+          <h2 class="dialog-title">Raspored časova</h2>
+          <div class="dialog-body" style="overflow-x: auto;">
+            <table class="table" style="min-width: 640px; font-size: 17px;">
+              <thead>
+                <tr><th>Čas</th><th>Ponedeljak</th><th>Utorak</th><th>Sreda</th><th>Četvrtak</th><th>Petak</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>1.</td><td>Srpski jezik</td><td>Matematika</td><td>Priroda i društvo</td><td>Srpski jezik</td><td>Fizičko vaspitanje</td></tr>
+                <tr><td>2.</td><td>Matematika</td><td>Srpski jezik</td><td>Matematika</td><td>Likovna kultura</td><td>Matematika</td></tr>
+                <tr><td>3.</td><td>Engleski jezik</td><td>Priroda i društvo</td><td>Srpski jezik</td><td>Muzička kultura</td><td>Srpski jezik</td></tr>
+                <tr><td>4.</td><td>Fizičko vaspitanje</td><td>Engleski jezik</td><td>Digitalni svet</td><td>Matematika</td><td>Čas odeljenske zajednice</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="dialog-actions">
+            <button type="button" class="btn btn-primary" onClick="{{ closeRaspored }}">Zatvori</button>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <hr class="hr">
+
+    <section id="aktivnosti" style="padding: 48px 0;">
+      <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 16px;">Aktivnosti</span>
+      <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; line-height: 1.2; margin: 0 0 24px;">Vannastavne aktivnosti</h2>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <sc-for list="{{ sekcije }}" as="sek" hint-placeholder-count="6">
+          <button type="button" onClick="{{ sek.toggle }}" aria-expanded="{{ sek.open }}" style="all: unset; cursor: pointer; display: inline-flex;">
+            <span class="{{ sek.className }}" style="transition: transform 0.15s ease;" style-hover="{{ tagHover }}">{{ sek.name }} {{ sek.sign }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ sekcijaActive }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top: 20px; animation: fadeInUp 0.2s ease;">
+          <h3 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 17px; margin: 0 0 8px;">{{ sekcijaActiveName }}</h3>
+          <p style="font-size: 15.5px; line-height: 1.7; margin: 0; max-width: 64ch; color: color-mix(in srgb, var(--color-text) 80%, transparent);">{{ sekcijaActiveText }}</p>
+        </div>
+      </sc-if>
+
+      <div style="margin-top: 24px; border-top: 2px solid var(--color-divider);">
+        <button type="button" onClick="{{ toggleEkskurzije }}" style="all: unset; display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 0; cursor: pointer; font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 17px; text-align: left;">
+          <span>Ekskurzije učenika</span>
+          <span style="color: var(--color-accent); font-size: 20px; line-height: 1;">{{ ekskurzijeSign }}</span>
+        </button>
+        <sc-if value="{{ ekskurzijeOpen }}" hint-placeholder-val="{{ false }}">
+          <p style="font-size: 15.5px; line-height: 1.7; margin: 0 0 20px; max-width: 64ch; color: color-mix(in srgb, var(--color-text) 80%, transparent); animation: fadeInUp 0.2s ease;">Škola organizuje jednodnevne i višednevne ekskurzije po razredima, u skladu sa nastavnim planom. Detalji o destinacijama, terminima i ceni objavljuju se na roditeljskim sastancima i oglasnoj tabli.</p>
+        </sc-if>
+      </div>
+
+      <div style="border-top: 2px solid var(--color-divider);">
+        <button type="button" onClick="{{ toggleRekreativna }}" style="all: unset; display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 0; cursor: pointer; font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 17px; text-align: left;">
+          <span>Rekreativna nastava</span>
+          <span style="color: var(--color-accent); font-size: 20px; line-height: 1;">{{ rekreativnaSign }}</span>
+        </button>
+        <sc-if value="{{ rekreativnaOpen }}" hint-placeholder-val="{{ false }}">
+          <p style="font-size: 15.5px; line-height: 1.7; margin: 0 0 20px; max-width: 64ch; color: color-mix(in srgb, var(--color-text) 80%, transparent); animation: fadeInUp 0.2s ease;">Rekreativna nastava realizuje se jednom godišnje. Detalji o terminu i lokaciji objavljuju se na roditeljskim sastancima i oglasnoj tabli.</p>
+        </sc-if>
+      </div>
+    </section>
+
+    <hr class="hr">
+
+    <section id="dokumenti" style="padding: 48px 0;">
+      <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 16px;">Dokumenti</span>
+      <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; line-height: 1.2; margin: 0 0 24px;">Dokumenti za preuzimanje</h2>
+      <div style="display: flex; flex-direction: column;">
+        <a href="https://prosveta.gov.rs/wp-content/uploads/2026/06/Kalendar-OS-2026-2027.-godina.pdf" target="_blank" rel="noopener" style="display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-top: 2px solid var(--color-divider); text-decoration: none; color: var(--color-text); transition: padding-left 0.15s ease;" style-hover="{{ docHover }}">
+          <span>Kalendar obrazovno-vaspitnog rada za osnovne škole 2026/2027.</span>
+          <span class="btn btn-icon" aria-hidden="true">↓</span>
+        </a>
+        <a href="dokumenti/Statut_OS_Rajko_Mihailovic.pdf" target="_blank" rel="noopener" download style="display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-top: 2px solid var(--color-divider); text-decoration: none; color: var(--color-text); transition: padding-left 0.15s ease;" style-hover="{{ docHover }}">
+          <span>Statut škole</span>
+          <span class="btn btn-icon" aria-hidden="true">↓</span>
+        </a>
+        <a href="dokumenti/Razvojni_Plan_2023-2028.docx" download style="display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-top: 2px solid var(--color-divider); text-decoration: none; color: var(--color-text); transition: padding-left 0.15s ease;" style-hover="{{ docHover }}">
+          <span>Razvojni plan škole 2023–2028.</span>
+          <span class="btn btn-icon" aria-hidden="true">↓</span>
+        </a>
+        <a href="#" style="display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-top: 2px solid var(--color-divider); text-decoration: none; color: var(--color-text); transition: padding-left 0.15s ease;" style-hover="{{ docHover }}">
+          <span>Godišnji plan rada škole</span>
+          <span class="btn btn-icon" aria-hidden="true">↓</span>
+        </a>
+        <a href="dokumenti/Skolski_Program_2022-2026.docx" download style="display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-top: 2px solid var(--color-divider); text-decoration: none; color: var(--color-text); transition: padding-left 0.15s ease;" style-hover="{{ docHover }}">
+          <span>Školski program 2022–2026.</span>
+          <span class="btn btn-icon" aria-hidden="true">↓</span>
+        </a>
+        <a href="dokumenti/Pravilnik_ponasanja_u_skoli.pdf" target="_blank" rel="noopener" download style="display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-top: 2px solid var(--color-divider); text-decoration: none; color: var(--color-text); transition: padding-left 0.15s ease;" style-hover="{{ docHover }}">
+          <span>Pravilnik o ponašanju u školi</span>
+          <span class="btn btn-icon" aria-hidden="true">↓</span>
+        </a>
+        <a href="dokumenti/Pravilnik_o_izostancima_ucenika.pdf" target="_blank" rel="noopener" download style="display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-top: 2px solid var(--color-divider); text-decoration: none; color: var(--color-text); transition: padding-left 0.15s ease;" style-hover="{{ docHover }}">
+          <span>Pravilnik o izostancima učenika</span>
+          <span class="btn btn-icon" aria-hidden="true">↓</span>
+        </a>
+        <a href="https://www.paragraf.rs/propisi/pravilnik-o-ocenjivanju-ucenika-u-osnovnom-obrazovanju-i-vaspitanju.html" target="_blank" rel="noopener" style="display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-top: 2px solid var(--color-divider); text-decoration: none; color: var(--color-text); transition: padding-left 0.15s ease;" style-hover="{{ docHover }}">
+          <span>Pravilnik o ocenjivanju učenika</span>
+          <span class="btn btn-icon" aria-hidden="true">↗</span>
+        </a>
+        <a href="https://www.pravno-informacioni-sistem.rs/eli/rep/sgrs/ministarstva/pravilnik/2018/74/4/reg" target="_blank" rel="noopener" style="display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-top: 2px solid var(--color-divider); text-decoration: none; color: var(--color-text); transition: padding-left 0.15s ease;" style-hover="{{ docHover }}">
+          <span>Pravilnik o bližim uslovima i pravima na individualni obrazovni plan</span>
+          <span class="btn btn-icon" aria-hidden="true">↗</span>
+        </a>
+        <a href="https://zuov.gov.rs/katalog-programa-strucnog-usavrsavanja-za-skolsku-2025-2026-2026-2027-i-2027-2028-godinu/" target="_blank" rel="noopener" style="display: flex; align-items: center; justify-content: space-between; padding: 16px 0; border-top: 2px solid var(--color-divider); border-bottom: 2px solid var(--color-divider); text-decoration: none; color: var(--color-text); transition: padding-left 0.15s ease;" style-hover="{{ docHover }}">
+          <span>Katalog programa stručnog usavršavanja 2025–2028.</span>
+          <span class="btn btn-icon" aria-hidden="true">↓</span>
+        </a>
+      </div>
+    </section>
+
+    <hr class="hr">
+
+    <section id="upis" style="padding: 48px 0;">
+      <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 16px;">Upis</span>
+      <div style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 40px; align-items: start;">
+        <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; line-height: 1.2; margin: 0;">Upis učenika</h2>
+        <div>
+          <p style="font-size: 15.5px; line-height: 1.7; margin: 0 0 20px; color: color-mix(in srgb, var(--color-text) 80%, transparent);">Upis prvaka u prvi razred vrši se svake godine u proleće, prema rasporedu koji objavljuje Ministarstvo prosvete. Roditelji potrebnu dokumentaciju predaju u sekretarijatu škole.</p>
+          <a href="#kontakt" class="btn btn-primary" style="text-decoration: none;">Kontaktirajte sekretarijat</a>
+        </div>
+      </div>
+    </section>
+
+    <hr class="hr">
+
+    <section id="faq" style="padding: 48px 0;">
+      <span style="display: block; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700); margin-bottom: 16px;">Pitanja</span>
+      <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 28px; line-height: 1.2; margin: 0 0 24px;">Često postavljana pitanja</h2>
+      <div>
+        <sc-for list="{{ faqItems }}" as="item" hint-placeholder-count="4">
+          <div>
+            <button type="button" onClick="{{ item.toggle }}" style="all: unset; display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 0; cursor: pointer; font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: 17px; text-align: left;">
+              <span>{{ item.q }}</span>
+              <span style="color: var(--color-accent); font-size: 20px; line-height: 1;">{{ item.sign }}</span>
+            </button>
+            <sc-if value="{{ item.open }}" hint-placeholder-val="{{ false }}">
+              <p style="font-size: 15.5px; line-height: 1.7; margin: 0 0 20px; max-width: 64ch; color: color-mix(in srgb, var(--color-text) 80%, transparent); animation: fadeInUp 0.2s ease;">{{ item.a }}</p>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+  </div>
+
+  <div style="background: var(--color-accent); color: var(--color-bg);">
+    <div style="max-width: 1440px; margin: 0 auto; padding: 48px clamp(20px, 5vw, 72px);" id="kontakt">
+      <h2 style="font-family: var(--font-heading); font-weight: var(--font-heading-weight); font-size: clamp(28px, 3.4vw, 40px); line-height: 1.15; margin: 0 0 24px;">Kontakt i lokacija</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px; align-items: start;">
+        <div style="font-size: 15.5px; line-height: 1.8;">
+          <p style="margin: 0 0 8px;"><strong>Osnovna škola Rajko Mihailović</strong></p>
+          <p style="margin: 0 0 8px;">Ulica Karađorđeva b.b., Banjani</p>
+          <p style="margin: 0 0 8px;">Direktorka škole: Vesna Vasić</p>
+          <p style="margin: 0 0 8px;">Telefon: 014 461 102</p>
+          <p style="margin: 0 0 8px;">PIB: 101349328</p>
+          <p style="margin: 0 0 8px;">Matični broj: 07098502</p>
+          <p style="margin: 0 0 8px;">Facebook: <a href="https://www.facebook.com/groups/151269718336418" target="_blank" rel="noopener" style="color: var(--color-bg); text-decoration-color: var(--color-bg);">grupa škole</a>, <a href="https://facebook.com/srpskijezikbanjani/" target="_blank" rel="noopener" style="color: var(--color-bg); text-decoration-color: var(--color-bg);">Srpski jezik Banjani</a></p>
+          <p style="margin: 0 0 20px;">Email: <a href="mailto:osbanjani@gmail.com" style="color: var(--color-bg); text-decoration-color: var(--color-accent-2);">osbanjani@gmail.com</a></p>
+          <p style="margin: 0;">Radno vreme sekretarijata: 07:30 — 14:30</p>
+        </div>
+        <div style="border: 2px solid var(--color-bg); aspect-ratio: 4/3;">
+          <iframe title="Mapa lokacije" src="https://maps.google.com/maps?q=44.5389754,19.9827022&z=16&output=embed" style="width: 100%; height: 100%; border: 0; filter: grayscale(1) contrast(1.1);" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width: 1440px; margin: 0 auto; padding: 24px clamp(20px, 5vw, 72px); font-size: 13px; color: color-mix(in srgb, var(--color-text) 65%, transparent); border-top: 2px solid var(--color-divider); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+    <span>Osnovna škola Rajko Mihailović, Banjani — osnovana 1874. godine.</span>
+  </div>
+
+</div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { orgOpen: false, selectedYear: 'sve', formName: '', formEmail: '', formMsg: '', formConsent: false, formSent: false, privacyOpen: false, faqOpenIndex: null, previewMode: 'full', customWidth: 390, dragging: false, ekskurzijeOpen: false, rekreativnaOpen: false, newsOpenIndex: null, newsShowAll: false, rasporedOpen: false, isMobile: false, menuOpen: false };
+  componentDidMount() {
+    this.checkWidth = () => {
+      const vw = document.documentElement.clientWidth || window.innerWidth;
+      const need = Math.max(1040, this.navNeeded || 0);
+      const mobile = vw < need;
+      if (mobile !== this.state.isMobile) this.setState(mobile ? { isMobile: true } : { isMobile: false, menuOpen: false });
+    };
+    this.measureNav = () => {
+      const row = this._navRow;
+      if (!row || !row.isConnected) return;
+      const kids = Array.from(row.children);
+      const gap = parseFloat(getComputedStyle(row).columnGap) || 0;
+      let w = kids.reduce((a, k) => a + k.getBoundingClientRect().width, 0) + gap * Math.max(0, kids.length - 1);
+      const nav = row.closest('nav');
+      if (nav) { const cs = getComputedStyle(nav); w += parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight); }
+      this.navNeeded = Math.ceil(w) + 16;
+      this.checkWidth();
+    };
+    this.navRowRef = (el) => { this._navRow = el; if (el) requestAnimationFrame(this.measureNav); };
+    this.onResize = () => { this.measureNav(); this.checkWidth(); };
+    this.checkWidth();
+    window.addEventListener('resize', this.onResize);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => this.measureNav());
+    this.onDragMove = (e) => {
+      if (!this.dragStartX) return;
+      const delta = e.clientX - this.dragStartX;
+      const w = Math.max(320, Math.min(1600, this.dragStartWidth + delta * 2));
+      this.setState({ customWidth: Math.round(w) });
+    };
+    this.onDragEnd = () => {
+      this.dragStartX = null;
+      this.setState({ dragging: false });
+      window.removeEventListener('mousemove', this.onDragMove);
+      window.removeEventListener('mouseup', this.onDragEnd);
+    };
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('mousemove', this.onDragMove);
+    window.removeEventListener('mouseup', this.onDragEnd);
+  }
+  faq = [
+    { q: 'Kako se vrši upis u prvi razred?', a: 'Upis prvaka vrši se svake godine u proleće, prema rasporedu koji objavljuje Ministarstvo prosvete. Roditelji potrebnu dokumentaciju predaju u sekretarijatu škole.' },
+    { q: 'Gde mogu da nađem raspored časova?', a: 'Raspored časova po odeljenjima objavljen je u sekciji Raspored na ovom sajtu i na oglasnoj tabli u školi.' },
+    { q: 'Kako mogu da kontaktiram sekretarijat?', a: 'Sekretarijat je dostupan na telefon 014 461 102 i putem elektronske pošte osbanjani@gmail.com.' },
+    { q: 'Koje vannastavne aktivnosti škola organizuje?', a: 'Škola organizuje sportsku, horsku, ekološku, dramsko-recitatorsku, saobraćajnu i šahovsku sekciju — detalji su u sekciji Vannastavne aktivnosti.' },
+    { q: 'Koje strane jezike imate u nastavi?', a: 'Engleski jezik uči se od prvog razreda. Za informacije o drugom stranom jeziku obratite se sekretarijatu škole.' },
+  ];
+  news = [
+    { date: '1. sep 2026', year: '2026', title: 'Objavljen kalendar za 2026/2027. godinu', text: 'Ministarstvo prosvete objavilo je kalendar obrazovno-vaspitnog rada za osnovne škole za 2026/2027. godinu — dostupan je u sekciji Dokumenti za preuzimanje.' },
+    { date: '1. sep 2026', year: '2026', title: 'Katalog programa stručnog usavršavanja', text: 'ZUOV je objavio katalog programa stručnog usavršavanja za školsku 2025/2026, 2026/2027. i 2027/2028. godinu — dostupan je u sekciji Dokumenti za preuzimanje.' },
+    { date: '5–11. oktobar 2026', year: '2026', title: 'Dečja nedelja', text: 'Ovogodišnji slogan Dečje nedelje je „Da bi deca srećna bila: ljubav i poštovanje, a ne sila!“ Škola je obeležava kroz radionice, druženja i aktivnosti za učenike.' },
+    { date: '27. januar 2027', year: '2027', title: 'Sveti Sava — školska slava', text: 'Škola proslavlja Svetog Savu, školsku slavu, priredbom i sečenjem slavskog kolača.' },
+    { date: '27. januar 2027', year: '2027', title: 'Dan sećanja na žrtve holokausta', text: 'Škola obeležava Međunarodni dan sećanja na žrtve holokausta temom časa i razgovorom sa učenicima.' },
+    { date: '15. februar 2027', year: '2027', title: 'Dan državnosti Srbije', text: 'Škola obeležava Dan državnosti Srbije (Sretenje) temom časa posvećenom istoriji i tradiciji.' },
+    { date: '11. novembar 2026', year: '2026', title: 'Dan primirja u Prvom svetskom ratu', text: 'Škola obeležava Dan primirja u Prvom svetskom ratu, državni praznik, minutom ćutanja i temom časa.' },
+    { date: '27. novembar 2026', year: '2026', title: 'Dan škole', text: 'Škola 27. novembra obeležava svoj dan.' },
+    { date: '16. novembar 2026', year: '2026', title: 'Dan tolerancije', text: 'Škola obeležava Dan tolerancije radionicama o poštovanju razlika i nenasilnoj komunikaciji.' },
+    { date: '22. mart 2027', year: '2027', title: 'Dan voda', text: 'Ekološka sekcija obeležava Svetski dan voda kroz radionice i aktivnosti u školi.' },
+    { date: '22. april 2027', year: '2027', title: 'Dan planete Zemlje', text: 'Povodom Dana planete Zemlje škola organizuje akciju čišćenja i uređenja školskog dvorišta.' },
+    { date: 'Maj 2027', year: '2027', title: 'Nedelja bezbednosti u saobraćaju', text: 'Saobraćajna sekcija organizuje radionice i vežbe o bezbednom ponašanju u saobraćaju.' },
+    { date: '1. sep 2026', year: '2026', title: 'Početak školske godine', text: 'Nastava počinje 1. septembra. Svečani doček prvaka održava se u dvorištu škole.' },
+    { date: 'Okt 2025', year: '2025', title: 'Roditeljski sastanci', text: 'Roditeljski sastanci po odeljenjima organizuju se tokom oktobra — tačni termini na oglasnoj tabli.' },
+    { date: 'Jan 2025', year: '2025', title: 'Zimski raspust', text: 'Zimski raspust traje prema kalendaru koji propisuje Ministarstvo prosvete.' },
+  ];
+  renderVals() {
+    const selectedYear = this.state.selectedYear;
+    const yearList = ['sve', ...Array.from(new Set(this.news.map(n => n.year))).sort().reverse()];
+    const years = yearList.map(y => ({
+      label: y === 'sve' ? 'Sve' : y,
+      className: 'btn ' + (y === selectedYear ? 'btn-primary' : 'btn-ghost'),
+      select: () => this.setState({ selectedYear: y }),
+    }));
+    const showAllNews = (e) => { e.preventDefault(); this.setState({ selectedYear: 'sve' }); };
+    const filteredNewsRaw = selectedYear === 'sve' ? this.news : this.news.filter(n => n.year === selectedYear);
+    const filteredNewsAll = filteredNewsRaw.map((item, i) => ({
+      ...item,
+      open: this.state.newsOpenIndex === i,
+      sign: this.state.newsOpenIndex === i ? '−' : '+',
+      toggle: () => this.setState({ newsOpenIndex: this.state.newsOpenIndex === i ? null : i }),
+    }));
+    const filteredNews = this.state.newsShowAll ? filteredNewsAll : filteredNewsAll.slice(0, 5);
+    const hasMoreNews = filteredNewsAll.length > 5 && !this.state.newsShowAll;
+    const showMoreNews = () => this.setState({ newsShowAll: true });
+    return {
+      orgOpen: this.state.orgOpen,
+      openOrg: () => this.setState({ orgOpen: true }),
+      closeOrg: () => this.setState({ orgOpen: false }),
+      years,
+      filteredNews,
+      hasMoreNews,
+      showMoreNews,
+      showAllNews,
+      formName: this.state.formName,
+      formEmail: this.state.formEmail,
+      formMsg: this.state.formMsg,
+      formConsent: this.state.formConsent,
+      formSent: this.state.formSent,
+      formNotSent: !this.state.formSent,
+      setFormName: e => this.setState({ formName: e.target.value }),
+      setFormEmail: e => this.setState({ formEmail: e.target.value }),
+      setFormMsg: e => this.setState({ formMsg: e.target.value }),
+      toggleConsent: e => this.setState({ formConsent: e.target.checked }),
+      submitForm: e => { e.preventDefault(); this.setState({ formSent: true }); },
+      privacyOpen: this.state.privacyOpen,
+      openPrivacy: e => { e.preventDefault(); this.setState({ privacyOpen: true }); },
+      closePrivacy: () => this.setState({ privacyOpen: false }),
+      stopClick: e => e.stopPropagation(),
+      rasporedOpen: this.state.rasporedOpen,
+      openRaspored: () => this.setState({ rasporedOpen: true }),
+      closeRaspored: () => this.setState({ rasporedOpen: false }),
+      navRowRef: this.navRowRef,
+      isMobile: !!this.state.isMobile,
+      notMobile: !this.state.isMobile,
+      heroGridStyle: this.state.isMobile
+        ? 'padding: 40px 0 32px; display: flex; flex-direction: column; gap: 28px;'
+        : 'padding: 56px 0 40px; display: grid; grid-template-columns: minmax(0,1fr) minmax(200px, 390px); gap: 40px; align-items: center;',
+      menuOpen: this.state.menuOpen,
+      toggleMenu: () => this.setState({ menuOpen: !this.state.menuOpen }),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      cardHover: { transform: 'translateY(-3px)', boxShadow: 'var(--shadow-md)' },
+      tagHover: { transform: 'translateY(-2px)' },
+      docHover: { paddingLeft: '8px' },
+      previewWidthCss: this.state.previewMode === 'full' ? '100%' : this.state.customWidth + 'px',
+      previewTransition: this.state.dragging ? 'none' : 'width 0.2s ease',
+      previewWidthLabel: this.state.previewMode === 'full' ? '' : this.state.customWidth + ' px',
+      previewBorder: this.state.previewMode === 'full' ? 'none' : '2px dashed var(--color-accent)',
+      showHandle: this.state.previewMode !== 'full',
+      mobileBtnClass: 'btn ' + (this.state.previewMode === 'mobile' ? 'btn-primary' : 'btn-ghost'),
+      tabletBtnClass: 'btn ' + (this.state.previewMode === 'tablet' ? 'btn-primary' : 'btn-ghost'),
+      desktopBtnClass: 'btn ' + (this.state.previewMode === 'full' ? 'btn-primary' : 'btn-ghost'),
+      setMobile: () => this.setState({ previewMode: 'mobile', customWidth: 390 }),
+      setTablet: () => this.setState({ previewMode: 'tablet', customWidth: 820 }),
+      setDesktop: () => this.setState({ previewMode: 'full' }),
+      ...(() => {
+        const names = ['Sportska sekcija', 'Horska sekcija', 'Ekološka sekcija', 'Dramsko-recitatorska sekcija', 'Saobraćajna sekcija', 'Šahovska sekcija'];
+        const cur = this.state.sekcijaOpen ?? null;
+        return {
+          sekcije: names.map((name, i) => ({
+            name,
+            open: cur === i,
+            sign: cur === i ? '−' : '+',
+            className: cur === i ? 'tag tag-outline' : 'tag tag-accent',
+            toggle: () => this.setState({ sekcijaOpen: cur === i ? null : i }),
+          })),
+          sekcijaActive: cur !== null,
+          sekcijaActiveName: cur !== null ? names[cur] : '',
+          sekcijaActiveText: 'Opis sekcije, termini i nastavnik koji je vodi biće dodati naknadno.',
+        };
+      })(),
+      ekskurzijeOpen: this.state.ekskurzijeOpen,
+      ekskurzijeSign: this.state.ekskurzijeOpen ? '−' : '+',
+      toggleEkskurzije: () => this.setState({ ekskurzijeOpen: !this.state.ekskurzijeOpen }),
+      rekreativnaOpen: this.state.rekreativnaOpen,
+      rekreativnaSign: this.state.rekreativnaOpen ? '−' : '+',
+      toggleRekreativna: () => this.setState({ rekreativnaOpen: !this.state.rekreativnaOpen }),
+      startDrag: (e) => {
+        e.preventDefault();
+        this.dragStartX = e.clientX;
+        this.dragStartWidth = this.state.customWidth;
+        this.setState({ dragging: true });
+        window.addEventListener('mousemove', this.onDragMove);
+        window.addEventListener('mouseup', this.onDragEnd);
+      },
+      faqItems: this.faq.map((item, i) => ({
+        q: item.q,
+        a: item.a,
+        open: this.state.faqOpenIndex === i,
+        sign: this.state.faqOpenIndex === i ? '−' : '+',
+        toggle: () => this.setState({ faqOpenIndex: this.state.faqOpenIndex === i ? null : i }),
+      })),
+    };
+  }
+}
+</script>
+</body>
+</html>
