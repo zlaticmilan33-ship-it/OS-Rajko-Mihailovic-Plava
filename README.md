@@ -7,8 +7,8 @@ Statički sajt, bez build koraka.
 - `izdvojena-odeljenja.html` — Izdvojena odeljenja
 - `dokumenti/` — dokumenti za preuzimanje
 - `assets/` — fotografije
-- `_ds/`, `support.js`, `image-slot.js` — stilovi i skripte (ne brisati)
-- `.nojekyll` — obavezan, da GitHub Pages ne bi ignorisao folder `_ds`
+- `ds/`, `support.js`, `image-slot.js` — stilovi i skripte (ne brisati)
+- `.nojekyll` — preporučen za GitHub Pages
 
 ## Objavljivanje na GitHub Pages
 
